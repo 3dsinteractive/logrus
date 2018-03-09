@@ -169,10 +169,5 @@ func (f *TextFormatter) appendValue(b *bytes.Buffer, value interface{}) {
 	if !ok {
 		stringVal = fmt.Sprint(value)
 	}
-
-	if !f.needsQuoting(stringVal) {
-		b.WriteString(stringVal)
-	} else {
-		b.WriteString(fmt.Sprintf("%q", stringVal))
-	}
+	b.WriteString(stringVal)
 }
